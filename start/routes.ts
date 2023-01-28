@@ -24,4 +24,4 @@ Route.get('/', async () => {
   return { hello: 'world' }
 })
 
-Route.get('pokemons', 'PokemonController.index')
+Route.resource('pokemons', 'PokemonController').apiOnly()

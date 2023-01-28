@@ -1,20 +1,18 @@
-// import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
+import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
+import Pokemon from 'App/Models/Pokemon'
 
 export default class PokemonController {
-  public async index() {
-    return [
-      {
-        nationalNumber: 1,
-        name: 'Bulbizarre'
-      },
-      {
-        nationalNumber: 2,
-        name: 'Herbizarre'
-      },
-      {
-        nationalNumber: 3,
-        name: 'Florizarre'
-      }
-    ]
+  public async index({}: HttpContextContract) {
+    return await Pokemon.all()
   }
+
+  public async store({}: HttpContextContract) {}
+
+  public async show({ params }: HttpContextContract) {
+    return await Pokemon.findOrFail(params.id)
+  }
+
+  public async update({}: HttpContextContract) {}
+
+  public async destroy({}: HttpContextContract) {}
 }
