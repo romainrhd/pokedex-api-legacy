@@ -3,7 +3,7 @@ import Pokemon from 'App/Models/Pokemon'
 
 export default class extends BaseSeeder {
   public async run () {
-    await Pokemon.createMany([
+    const pokemons = await Pokemon.createMany([
       {
         nationalNumber: 1,
         name: 'Bulbizarre',
@@ -11,10 +11,12 @@ export default class extends BaseSeeder {
       {
         nationalNumber: 2,
         name: 'Herbizarre',
+        evolutionOfNationalNumber: 1,
       },
       {
         nationalNumber: 3,
         name: 'Florizarre',
+        evolutionOfNationalNumber: 2,
       },
     ])
   }

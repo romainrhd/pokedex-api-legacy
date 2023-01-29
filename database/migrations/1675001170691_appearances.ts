@@ -1,16 +1,18 @@
 import BaseSchema from '@ioc:Adonis/Lucid/Schema'
 
 export default class extends BaseSchema {
-  protected tableName = 'pokemon'
+  protected tableName = 'appearances'
 
   public async up () {
     this.schema.createTable(this.tableName, (table) => {
-      table.integer('national_number').unsigned().primary()
-      table.string('name')
+      table.increments('id')
+      table.string('name').nullable()
+      table.string('picture')
+      table.boolean('is_default')
+      table.boolean('is_shiny')
       table
-        .integer('evolution_of_national_number')
+        .integer('pokemon_national_number')
         .unsigned()
-        .nullable()
         .references('pokemon.national_number')
       table.timestamp('created_at', { useTz: true })
       table.timestamp('updated_at', { useTz: true })

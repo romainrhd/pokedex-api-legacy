@@ -6,7 +6,9 @@ export default class PokemonController {
     return await Pokemon.all()
   }
 
-  public async store({}: HttpContextContract) {}
+  public async store({ request }: HttpContextContract) {
+    return await Pokemon.create(request.all())
+  }
 
   public async show({ params }: HttpContextContract) {
     return await Pokemon.findOrFail(params.id)
