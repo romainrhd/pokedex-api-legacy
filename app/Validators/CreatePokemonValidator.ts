@@ -6,21 +6,17 @@ export default class CreatePokemonValidator {
 
   public schema = schema.create({
     nationalNumber: schema.number([
-      rules.unique
+      rules.required(),
+      rules.unique({ table: 'pokemon', column: 'national_number' }),
     ]),
-
+    name: schema.string([
+      rules.required(),
+      rules.unique({ table: 'pokemon', column: 'name' }),
+    ]),
+    evolutionOfNationalNumber: schema.number([
+      rules.exists({ table: 'pokemon', column: 'national_number' })
+    ])
   })
 
-  /**
-   * Custom messages for validation failures. You can make use of dot notation `(.)`
-   * for targeting nested fields and array expressions `(*)` for targeting all
-   * children of an array. For example:
-   *
-   * {
-   *   'profile.username.required': 'Username is required',
-   *   'scores.*.number': 'Define scores as valid numbers'
-   * }
-   *
-   */
   public messages: CustomMessages = {}
 }
