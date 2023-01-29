@@ -1,13 +1,15 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Pokemon from 'App/Models/Pokemon'
+import CreatePokemonValidator from 'App/Validators/CreatePokemonValidator'
 
 export default class PokemonController {
   public async index({}: HttpContextContract) {
-    return await Pokemon.all()
+    return await Pokemon.query().orderBy('created_at', 'asc')
   }
 
   public async store({ request }: HttpContextContract) {
-    return await Pokemon.create(request.all())
+    const payload = await request.validate(CreatePokemonValidator)
+    return await Pokemon.create(payload)
   }
 
   public async show({ params }: HttpContextContract) {
