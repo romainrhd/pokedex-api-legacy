@@ -1,6 +1,7 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Pokemon from 'App/Models/Pokemon'
 import CreatePokemonValidator from 'App/Validators/CreatePokemonValidator'
+import UpdatePokemonValidator from 'App/Validators/UpdatePokemonValidator'
 
 export default class PokemonController {
   public async index({}: HttpContextContract) {
@@ -16,7 +17,15 @@ export default class PokemonController {
     return await Pokemon.findOrFail(params.id)
   }
 
-  public async update({}: HttpContextContract) {}
+  public async update({ params, request }: HttpContextContract) {
+    const pokemon = await Pokemon.findOrFail(params.id)
+    const payload = await request.validate(UpdatePokemonValidator)
+    return await pokemon.merge(payload).save()
+  }
 
-  public async destroy({}: HttpContextContract) {}
+  public async destroy({ params, response }: HttpContextContract) {
+    const pokemon = await Pokemon.findOrFail(params.id)
+    await pokemon.delete()
+    return response.status(204)
+  }
 }
