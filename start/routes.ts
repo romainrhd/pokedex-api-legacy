@@ -21,4 +21,4 @@
 import Route from '@ioc:Adonis/Core/Route'
 
 Route.resource('pokemons', 'PokemonController').apiOnly()
-Route.resource('appearances', 'AppearancesController').apiOnly()
+Route.shallowResource('pokemon.appearances', 'AppearancesController').apiOnly()

@@ -109,11 +109,11 @@
     "colId": "d78c52ca-b2a6-4e61-bca3-7a3255491eab",
     "containerId": "dc71d435-c4aa-41bf-a42e-ea09b3a218e8",
     "name": "Get All",
-    "url": "http://localhost:3333/appearances",
+    "url": "http://localhost:3333/pokemon/1/appearances",
     "method": "GET",
     "sortNum": 10000,
     "created": "2023-01-30T22:50:58.054Z",
-    "modified": "2023-01-30T22:51:31.004Z",
+    "modified": "2023-01-30T23:18:33.254Z",
     "headers": [
       {
         "name": "Accept",
@@ -147,11 +147,11 @@
     "colId": "d78c52ca-b2a6-4e61-bca3-7a3255491eab",
     "containerId": "dc71d435-c4aa-41bf-a42e-ea09b3a218e8",
     "name": "Create",
-    "url": "http://localhost:3333/appearances",
+    "url": "http://localhost:3333/pokemon/2/appearances",
     "method": "POST",
     "sortNum": 30000,
     "created": "2023-01-30T22:50:58.057Z",
-    "modified": "2023-01-30T22:56:54.130Z",
+    "modified": "2023-01-30T23:19:05.332Z",
     "headers": [
       {
         "name": "Accept",
@@ -161,7 +161,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"picture\": \"https://www.pokepedia.fr/images/3/3b/Sprite_002_HOME.png\",\n  \"isDefault\": true,\n  \"isShiny\": false,\n  \"pokemonNationalNumber\": 2\n}",
+      "raw": "{\n  \"picture\": \"https://www.pokepedia.fr/images/3/3b/Sprite_002_HOME.png\",\n  \"isDefault\": true,\n  \"isShiny\": false\n}",
       "form": []
     },
     "tests": []

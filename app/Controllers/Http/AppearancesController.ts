@@ -8,7 +8,8 @@ export default class AppearancesController {
     return await Appearance.query().orderBy('created_at', 'asc')
   }
 
-  public async store({ request }: HttpContextContract) {
+  public async store({ params, request }: HttpContextContract) {
+    // TODO : use params.pokemon_id to associate pokemon with appearance
     const payload = await request.validate(CreateAppearanceValidator)
     return await Appearance.create(payload)
   }
