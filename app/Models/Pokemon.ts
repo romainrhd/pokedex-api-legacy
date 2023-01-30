@@ -10,7 +10,7 @@ export default class Pokemon extends BaseModel {
   public name: string
 
   @column()
-  public evolutionOfNationalNumber: number
+  public evolutionOfNationalNumber: number | null
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime

@@ -70,7 +70,7 @@
     "method": "PUT",
     "sortNum": 40000,
     "created": "2023-01-30T10:53:10.072Z",
-    "modified": "2023-01-30T13:32:22.511Z",
+    "modified": "2023-01-30T23:08:25.873Z",
     "headers": [
       {
         "name": "Accept",
@@ -80,7 +80,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\": \"Pikachuuuuuuu\"\n}",
+      "raw": "{\n  \"name\": \"Bulbizarre\"\n}",
       "form": []
     },
     "tests": []
@@ -95,6 +95,111 @@
     "sortNum": 50000,
     "created": "2023-01-30T13:34:10.117Z",
     "modified": "2023-01-30T13:34:59.002Z",
+    "headers": [
+      {
+        "name": "Accept",
+        "value": "application/json"
+      }
+    ],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "09d48cc7-2458-432a-bbdb-aa56a5af28df",
+    "colId": "d78c52ca-b2a6-4e61-bca3-7a3255491eab",
+    "containerId": "dc71d435-c4aa-41bf-a42e-ea09b3a218e8",
+    "name": "Get All",
+    "url": "http://localhost:3333/appearances",
+    "method": "GET",
+    "sortNum": 10000,
+    "created": "2023-01-30T22:50:58.054Z",
+    "modified": "2023-01-30T22:51:31.004Z",
+    "headers": [
+      {
+        "name": "Accept",
+        "value": "application/json"
+      }
+    ],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "0231eb41-edcf-42b6-bf5d-a7ce757ccf5f",
+    "colId": "d78c52ca-b2a6-4e61-bca3-7a3255491eab",
+    "containerId": "dc71d435-c4aa-41bf-a42e-ea09b3a218e8",
+    "name": "Get One",
+    "url": "http://localhost:3333/appearances/1",
+    "method": "GET",
+    "sortNum": 20000,
+    "created": "2023-01-30T22:50:58.055Z",
+    "modified": "2023-01-30T22:53:57.229Z",
+    "headers": [
+      {
+        "name": "Accept",
+        "value": "application/json"
+      }
+    ],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "4dc01f83-9ec4-41d6-b23a-a0741010fbfc",
+    "colId": "d78c52ca-b2a6-4e61-bca3-7a3255491eab",
+    "containerId": "dc71d435-c4aa-41bf-a42e-ea09b3a218e8",
+    "name": "Create",
+    "url": "http://localhost:3333/appearances",
+    "method": "POST",
+    "sortNum": 30000,
+    "created": "2023-01-30T22:50:58.057Z",
+    "modified": "2023-01-30T22:56:54.130Z",
+    "headers": [
+      {
+        "name": "Accept",
+        "value": "application/json"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"picture\": \"https://www.pokepedia.fr/images/3/3b/Sprite_002_HOME.png\",\n  \"isDefault\": true,\n  \"isShiny\": false,\n  \"pokemonNationalNumber\": 2\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "be1aefe7-ffef-4847-a763-621784b3978f",
+    "colId": "d78c52ca-b2a6-4e61-bca3-7a3255491eab",
+    "containerId": "dc71d435-c4aa-41bf-a42e-ea09b3a218e8",
+    "name": "Update",
+    "url": "http://localhost:3333/appearances/3",
+    "method": "PUT",
+    "sortNum": 40000,
+    "created": "2023-01-30T22:50:58.058Z",
+    "modified": "2023-01-30T23:02:53.276Z",
+    "headers": [
+      {
+        "name": "Accept",
+        "value": "application/json"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"grezgrezgrezgrez\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "55eec71d-50cc-40d2-8fa6-8c33f005b5a2",
+    "colId": "d78c52ca-b2a6-4e61-bca3-7a3255491eab",
+    "containerId": "dc71d435-c4aa-41bf-a42e-ea09b3a218e8",
+    "name": "Delete",
+    "url": "http://localhost:3333/appearances/3",
+    "method": "DELETE",
+    "sortNum": 50000,
+    "created": "2023-01-30T22:50:58.059Z",
+    "modified": "2023-01-30T23:06:12.116Z",
     "headers": [
       {
         "name": "Accept",

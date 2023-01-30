@@ -4,7 +4,7 @@ import CreatePokemonValidator from 'App/Validators/CreatePokemonValidator'
 import UpdatePokemonValidator from 'App/Validators/UpdatePokemonValidator'
 
 export default class PokemonController {
-  public async index({}: HttpContextContract) {
+  public async index() {
     return await Pokemon.query().orderBy('created_at', 'asc')
   }
 

@@ -7,7 +7,7 @@ export default class Appearance extends BaseModel {
   public id: number
 
   @column()
-  public name: string
+  public name: string | null
 
   @column()
   public picture: string
