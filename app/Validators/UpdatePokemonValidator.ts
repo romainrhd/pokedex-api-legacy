@@ -11,7 +11,7 @@ export default class UpdatePokemonValidator {
     name: schema.string.optional([
       rules.unique({ table: 'pokemon', column: 'name' }),
     ]),
-    evolutionOfNationalNumber: schema.number.nullableAndOptional([
+    evolutionOfNationalNumber: schema.number.optional([
       rules.exists({ table: 'pokemon', column: 'national_number' })
     ])
   })
