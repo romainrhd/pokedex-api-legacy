@@ -1,0 +1,17 @@
+[
+  {
+    "_id": "d78c52ca-b2a6-4e61-bca3-7a3255491eab",
+    "colName": "Pokedex",
+    "created": "2023-01-30T10:43:36.503Z",
+    "sortNum": 10000,
+    "folders": [
+      {
+        "_id": "fbf9ae20-c6af-417a-bf00-7f276f86ac3e",
+        "name": "Pokemon",
+        "containerId": "",
+        "created": "2023-01-30T10:43:47.443Z",
+        "sortNum": 10000
+      }
+    ]
+  }
+]

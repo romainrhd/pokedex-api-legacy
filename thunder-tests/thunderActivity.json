@@ -1,0 +1,40 @@
+[
+  {
+    "_id": "79d09d5f-4e59-4fe0-8cf2-0020c4f50e00",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3333/pokemons",
+    "url": "http://localhost:3333/pokemons",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-01-30T10:43:26.095Z",
+    "modified": "2023-01-30T10:43:26.095Z",
+    "headers": [
+      {
+        "name": "Accept",
+        "value": "application/json"
+      }
+    ],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "7d2b90eb-ae79-49ac-b4e9-a888559e0bcd",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:3333/pokemons/1",
+    "url": "http://localhost:3333/pokemons/1",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-01-30T10:51:46.450Z",
+    "modified": "2023-01-30T10:51:46.450Z",
+    "headers": [
+      {
+        "name": "Accept",
+        "value": "application/json"
+      }
+    ],
+    "params": [],
+    "tests": []
+  }
+]
