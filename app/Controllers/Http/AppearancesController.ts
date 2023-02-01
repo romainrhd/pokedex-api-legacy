@@ -9,7 +9,8 @@ export default class AppearancesController {
   }
 
   public async store({ params, request }: HttpContextContract) {
-    // TODO : use params.pokemon_id to associate pokemon with appearance
+    const pokemonNationalNumber = { pokemonNationalNumber: parseInt(params.pokemon_id) }
+    request.updateBody({...request.all(), ...pokemonNationalNumber})
     const payload = await request.validate(CreateAppearanceValidator)
     return await Appearance.create(payload)
   }
