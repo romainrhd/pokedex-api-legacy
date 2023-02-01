@@ -4,11 +4,11 @@
     "colId": "d78c52ca-b2a6-4e61-bca3-7a3255491eab",
     "containerId": "fbf9ae20-c6af-417a-bf00-7f276f86ac3e",
     "name": "Get All",
-    "url": "http://localhost:3333/pokemons",
+    "url": "http://localhost:3333/api/pokemons",
     "method": "GET",
     "sortNum": 10000,
     "created": "2023-01-30T10:43:36.505Z",
-    "modified": "2023-01-30T10:43:49.248Z",
+    "modified": "2023-02-01T23:08:32.981Z",
     "headers": [
       {
         "name": "Accept",
@@ -16,6 +16,10 @@
       }
     ],
     "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "Mw.4DJ8DiTfM2gJyeHVswE-adHFW0TPOBuKuWaiAzz8qzvQO06s21VnmLoVPdTk"
+    },
     "tests": []
   },
   {
@@ -23,11 +27,11 @@
     "colId": "d78c52ca-b2a6-4e61-bca3-7a3255491eab",
     "containerId": "fbf9ae20-c6af-417a-bf00-7f276f86ac3e",
     "name": "Get One",
-    "url": "http://localhost:3333/pokemons/1",
+    "url": "http://localhost:3333/api/pokemons/1",
     "method": "GET",
     "sortNum": 20000,
     "created": "2023-01-30T10:51:53.575Z",
-    "modified": "2023-01-30T10:51:53.575Z",
+    "modified": "2023-02-01T23:00:30.939Z",
     "headers": [
       {
         "name": "Accept",
@@ -66,11 +70,11 @@
     "colId": "d78c52ca-b2a6-4e61-bca3-7a3255491eab",
     "containerId": "fbf9ae20-c6af-417a-bf00-7f276f86ac3e",
     "name": "Update",
-    "url": "http://localhost:3333/pokemons/1",
+    "url": "http://localhost:3333/api/pokemons/1",
     "method": "PUT",
     "sortNum": 40000,
     "created": "2023-01-30T10:53:10.072Z",
-    "modified": "2023-01-30T23:08:25.873Z",
+    "modified": "2023-02-01T23:00:46.286Z",
     "headers": [
       {
         "name": "Accept",
@@ -90,11 +94,11 @@
     "colId": "d78c52ca-b2a6-4e61-bca3-7a3255491eab",
     "containerId": "fbf9ae20-c6af-417a-bf00-7f276f86ac3e",
     "name": "Delete",
-    "url": "http://localhost:3333/pokemons/27",
+    "url": "http://localhost:3333/api/pokemons/27",
     "method": "DELETE",
     "sortNum": 50000,
     "created": "2023-01-30T13:34:10.117Z",
-    "modified": "2023-01-30T13:34:59.002Z",
+    "modified": "2023-02-01T23:00:55.264Z",
     "headers": [
       {
         "name": "Accept",
@@ -109,11 +113,11 @@
     "colId": "d78c52ca-b2a6-4e61-bca3-7a3255491eab",
     "containerId": "dc71d435-c4aa-41bf-a42e-ea09b3a218e8",
     "name": "Get All",
-    "url": "http://localhost:3333/pokemon/1/appearances",
+    "url": "http://localhost:3333/api/pokemon/1/appearances",
     "method": "GET",
     "sortNum": 10000,
     "created": "2023-01-30T22:50:58.054Z",
-    "modified": "2023-01-30T23:18:33.254Z",
+    "modified": "2023-02-01T23:01:13.621Z",
     "headers": [
       {
         "name": "Accept",
@@ -128,11 +132,11 @@
     "colId": "d78c52ca-b2a6-4e61-bca3-7a3255491eab",
     "containerId": "dc71d435-c4aa-41bf-a42e-ea09b3a218e8",
     "name": "Get One",
-    "url": "http://localhost:3333/appearances/1",
+    "url": "http://localhost:3333/api/appearances/1",
     "method": "GET",
     "sortNum": 20000,
     "created": "2023-01-30T22:50:58.055Z",
-    "modified": "2023-01-30T22:53:57.229Z",
+    "modified": "2023-02-01T23:01:29.228Z",
     "headers": [
       {
         "name": "Accept",
@@ -147,11 +151,11 @@
     "colId": "d78c52ca-b2a6-4e61-bca3-7a3255491eab",
     "containerId": "dc71d435-c4aa-41bf-a42e-ea09b3a218e8",
     "name": "Create",
-    "url": "http://localhost:3333/pokemon/2/appearances",
+    "url": "http://localhost:3333/api/pokemon/2/appearances",
     "method": "POST",
     "sortNum": 30000,
     "created": "2023-01-30T22:50:58.057Z",
-    "modified": "2023-01-30T23:19:05.332Z",
+    "modified": "2023-02-01T23:01:32.546Z",
     "headers": [
       {
         "name": "Accept",
@@ -171,11 +175,11 @@
     "colId": "d78c52ca-b2a6-4e61-bca3-7a3255491eab",
     "containerId": "dc71d435-c4aa-41bf-a42e-ea09b3a218e8",
     "name": "Update",
-    "url": "http://localhost:3333/appearances/3",
+    "url": "http://localhost:3333/api/appearances/3",
     "method": "PUT",
     "sortNum": 40000,
     "created": "2023-01-30T22:50:58.058Z",
-    "modified": "2023-01-30T23:02:53.276Z",
+    "modified": "2023-02-01T23:01:35.603Z",
     "headers": [
       {
         "name": "Accept",
@@ -195,11 +199,11 @@
     "colId": "d78c52ca-b2a6-4e61-bca3-7a3255491eab",
     "containerId": "dc71d435-c4aa-41bf-a42e-ea09b3a218e8",
     "name": "Delete",
-    "url": "http://localhost:3333/appearances/3",
+    "url": "http://localhost:3333/api/appearances/3",
     "method": "DELETE",
     "sortNum": 50000,
     "created": "2023-01-30T22:50:58.059Z",
-    "modified": "2023-01-30T23:06:12.116Z",
+    "modified": "2023-02-01T23:01:39.574Z",
     "headers": [
       {
         "name": "Accept",
@@ -207,6 +211,54 @@
       }
     ],
     "params": [],
+    "tests": []
+  },
+  {
+    "_id": "9f923f94-deda-424a-a3af-083a7670fcf6",
+    "colId": "d78c52ca-b2a6-4e61-bca3-7a3255491eab",
+    "containerId": "a72be8a3-307b-4bd9-9b7a-d4893ad60b13",
+    "name": "Register",
+    "url": "http://localhost:3333/api/register",
+    "method": "POST",
+    "sortNum": 60000,
+    "created": "2023-02-01T23:02:06.371Z",
+    "modified": "2023-02-01T23:04:44.283Z",
+    "headers": [
+      {
+        "name": "Accept",
+        "value": "application/json"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"email\": \"romain@test.fr\",\n  \"lastName\": \"RICHARD\",\n  \"firstName\": \"Romain\",\n  \"password\": \"pokedex1234\",\n  \"passwordConfirmation\": \"pokedex1234\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "22628d0e-421a-4b8f-ad7a-267cff0781d6",
+    "colId": "d78c52ca-b2a6-4e61-bca3-7a3255491eab",
+    "containerId": "a72be8a3-307b-4bd9-9b7a-d4893ad60b13",
+    "name": "Login",
+    "url": "http://localhost:3333/api/login",
+    "method": "POST",
+    "sortNum": 70000,
+    "created": "2023-02-01T23:05:00.168Z",
+    "modified": "2023-02-01T23:05:57.943Z",
+    "headers": [
+      {
+        "name": "Accept",
+        "value": "application/json"
+      }
+    ],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"email\": \"romain@test.fr\",\n  \"password\": \"pokedex1234\"\n}",
+      "form": []
+    },
     "tests": []
   }
 ]

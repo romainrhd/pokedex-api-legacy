@@ -6,14 +6,14 @@ export default class extends BaseSchema {
   public async up () {
     this.schema.createTable(this.tableName, (table) => {
       table.integer('national_number').unsigned().primary()
-      table.string('name')
+      table.string('name').notNullable()
       table
         .integer('evolution_of_national_number')
         .unsigned()
         .nullable()
         .references('pokemon.national_number')
-      table.timestamp('created_at', { useTz: true })
-      table.timestamp('updated_at', { useTz: true })
+      table.timestamp('created_at', { useTz: true }).notNullable()
+      table.timestamp('updated_at', { useTz: true }).notNullable()
     })
   }
 

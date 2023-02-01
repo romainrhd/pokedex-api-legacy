@@ -20,5 +20,11 @@
 
 import Route from '@ioc:Adonis/Core/Route'
 
-Route.resource('pokemons', 'PokemonController').apiOnly()
-Route.shallowResource('pokemon.appearances', 'AppearancesController').apiOnly()
+Route.group(() => {
+    Route.group(() => {
+        Route.resource('pokemons', 'PokemonController').apiOnly()
+        Route.shallowResource('pokemon.appearances', 'AppearancesController').apiOnly()
+    }).middleware('auth')
+    Route.post('register', 'AuthController.register')
+    Route.post('login', 'AuthController.login')
+}).prefix('/api')
