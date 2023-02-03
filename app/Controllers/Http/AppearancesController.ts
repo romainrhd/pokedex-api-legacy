@@ -1,8 +1,8 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Appearance from 'App/Models/Appearance'
 import Pokemon from 'App/Models/Pokemon'
-import CreateAppearanceValidator from 'App/Validators/CreateAppearanceValidator'
-import UpdateAppearanceValidator from 'App/Validators/UpdateAppearanceValidator'
+import CreateAppearanceValidator from 'App/Validators/Appearance/CreateAppearanceValidator'
+import UpdateAppearanceValidator from 'App/Validators/Appearance/UpdateAppearanceValidator'
 
 export default class AppearancesController {
   public async index({ params }: HttpContextContract) {

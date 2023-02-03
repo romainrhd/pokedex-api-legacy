@@ -1,7 +1,7 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Pokemon from 'App/Models/Pokemon'
-import CreatePokemonValidator from 'App/Validators/CreatePokemonValidator'
-import UpdatePokemonValidator from 'App/Validators/UpdatePokemonValidator'
+import CreatePokemonValidator from 'App/Validators/Pokemon/CreatePokemonValidator'
+import UpdatePokemonValidator from 'App/Validators/Pokemon/UpdatePokemonValidator'
 
 export default class PokemonController {
   public async index() {
