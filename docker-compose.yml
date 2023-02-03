@@ -2,24 +2,24 @@ services:
   database:
     image: mariadb:10
     ports:
-      - '${MYSQL_PORT}:3306'
+      - '${MYSQL_PORT-3306}:3306'
     environment:
       MYSQL_ROOT_HOST: "%"
-      MYSQL_DATABASE: '${MYSQL_DB_NAME}'
-      MYSQL_USER: '${MYSQL_USER}'
-      MYSQL_PASSWORD: '${MYSQL_PASSWORD}'
+      MYSQL_DATABASE: '${MYSQL_DB_NAME-pokedex_db}'
+      MYSQL_USER: '${MYSQL_USER-pokedex_u}'
+      MYSQL_PASSWORD: '${MYSQL_PASSWORD-secret}'
       MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
     volumes:
       - 'dbdata:/var/lib/mysql'
   database_testing:
     image: mariadb:10
     ports:
-      - '${MYSQL_PORT_TESTING}:3306'
+      - '${MYSQL_PORT_TESTING-3307}:3306'
     environment:
       MYSQL_ROOT_HOST: "%"
-      MYSQL_DATABASE: '${MYSQL_DB_NAME}'
-      MYSQL_USER: '${MYSQL_USER}'
-      MYSQL_PASSWORD: '${MYSQL_PASSWORD}'
+      MYSQL_DATABASE: '${MYSQL_DB_NAME-pokedex_db}'
+      MYSQL_USER: '${MYSQL_USER-pokedex_u}'
+      MYSQL_PASSWORD: '${MYSQL_PASSWORD-secret}'
       MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
     volumes:
       - 'dbdatatesting:/var/lib/mysql'
