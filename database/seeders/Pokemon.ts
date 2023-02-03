@@ -1,25 +1,31 @@
 import BaseSeeder from '@ioc:Adonis/Lucid/Seeder'
+import Appearance from 'App/Models/Appearance';
 import Pokemon from 'App/Models/Pokemon'
+import { pokemons } from '../data/pokemons'
 
 export default class extends BaseSeeder {
   public static environment = ['development', 'test']
   
   public async run () {
-    await Pokemon.createMany([
-      {
-        nationalNumber: 1,
-        name: 'Bulbizarre',
-      },
-      {
-        nationalNumber: 2,
-        name: 'Herbizarre',
-        evolutionOfNationalNumber: 1,
-      },
-      {
-        nationalNumber: 3,
-        name: 'Florizarre',
-        evolutionOfNationalNumber: 2,
-      },
-    ])
+    for(const pokemon of pokemons) {
+      await Pokemon.create({
+        nationalNumber: pokemon.nationalNumber,
+        name: pokemon.name,
+        evolutionOfNationalNumber: pokemon.evolutionOfNationalNumber
+      })
+
+      if(pokemon.appearances.length > 0) {
+        for(const appearance of pokemon.appearances) {
+          await Appearance.create({
+            name: appearance.name,
+            picture: appearance.picture,
+            isDefault: appearance.isDefault,
+            isShiny: appearance.isShiny,
+            pokemonNationalNumber: pokemon.nationalNumber
+          })
+        }
+      }
+
+    }
   }
 }

@@ -5,9 +5,7 @@ export default class UpdateAppearanceValidator {
   constructor(protected ctx: HttpContextContract) {}
 
   public schema = schema.create({
-    name: schema.string.nullableAndOptional([
-      rules.unique({ table: 'appearances', column: 'name' }),
-    ]),
+    name: schema.string.nullableAndOptional(),
     picture: schema.string.optional([
       rules.url()
     ]),

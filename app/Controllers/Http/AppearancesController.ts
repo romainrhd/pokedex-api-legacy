@@ -1,18 +1,23 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Appearance from 'App/Models/Appearance'
+import Pokemon from 'App/Models/Pokemon'
 import CreateAppearanceValidator from 'App/Validators/CreateAppearanceValidator'
 import UpdateAppearanceValidator from 'App/Validators/UpdateAppearanceValidator'
 
 export default class AppearancesController {
-  public async index() {
-    return await Appearance.query().orderBy('created_at', 'asc')
+  public async index({ params }: HttpContextContract) {
+    const pokemon = await Pokemon
+      .query()
+      .where('nationalNumber', params.pokemon_id)
+      .preload('appearances')
+      .firstOrFail()
+    return pokemon.appearances
   }
 
   public async store({ params, request }: HttpContextContract) {
-    const pokemonNationalNumber = { pokemonNationalNumber: parseInt(params.pokemon_id) }
-    request.updateBody({...request.all(), ...pokemonNationalNumber})
+    const pokemon = await Pokemon.findOrFail(params.pokemon_id)
     const payload = await request.validate(CreateAppearanceValidator)
-    return await Appearance.create(payload)
+    return await pokemon.related('appearances').create(payload)
   }
 
   public async show({ params }: HttpContextContract) {

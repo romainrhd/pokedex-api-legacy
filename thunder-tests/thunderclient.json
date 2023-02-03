@@ -113,11 +113,11 @@
     "colId": "d78c52ca-b2a6-4e61-bca3-7a3255491eab",
     "containerId": "dc71d435-c4aa-41bf-a42e-ea09b3a218e8",
     "name": "Get All",
-    "url": "http://localhost:3333/api/pokemon/1/appearances",
+    "url": "http://localhost:3333/api/pokemon/3/appearances",
     "method": "GET",
     "sortNum": 10000,
     "created": "2023-01-30T22:50:58.054Z",
-    "modified": "2023-02-01T23:01:13.621Z",
+    "modified": "2023-02-03T16:35:26.391Z",
     "headers": [
       {
         "name": "Accept",
@@ -125,6 +125,10 @@
       }
     ],
     "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "MQ.QlFTL0twt05qgMaRGUzShx5bvqKbS0vw9yb4NG-qw3C1I5Lgcs7HWojYRjUD"
+    },
     "tests": []
   },
   {
