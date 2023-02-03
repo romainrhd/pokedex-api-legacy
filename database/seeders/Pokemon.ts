@@ -2,8 +2,10 @@ import BaseSeeder from '@ioc:Adonis/Lucid/Seeder'
 import Pokemon from 'App/Models/Pokemon'
 
 export default class extends BaseSeeder {
+  public static environment = ['development', 'test']
+  
   public async run () {
-    const pokemons = await Pokemon.createMany([
+    await Pokemon.createMany([
       {
         nationalNumber: 1,
         name: 'Bulbizarre',
