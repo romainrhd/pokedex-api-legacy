@@ -1,10 +1,12 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Appearance from 'App/Models/Appearance'
 import Pokemon from 'App/Models/Pokemon'
+import User from 'App/Models/User'
 import CreateAppearanceValidator from 'App/Validators/Appearance/CreateAppearanceValidator'
 import UpdateAppearanceValidator from 'App/Validators/Appearance/UpdateAppearanceValidator'
 
 export default class AppearancesController {
+
   public async index({ params }: HttpContextContract) {
     const pokemon = await Pokemon
       .query()
@@ -35,4 +37,12 @@ export default class AppearancesController {
     await appearance.delete()
     return response.status(204)
   }
+
+  public async catched({ params, auth }: HttpContextContract) {
+    const appearance = await Appearance.findOrFail(params.id)
+    await appearance.related('users').attach([auth.user.id])
+    await auth.user.load('catched')
+    return auth.user.catched
+  }
+
 }

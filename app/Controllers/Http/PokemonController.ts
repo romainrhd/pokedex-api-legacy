@@ -4,6 +4,7 @@ import CreatePokemonValidator from 'App/Validators/Pokemon/CreatePokemonValidato
 import UpdatePokemonValidator from 'App/Validators/Pokemon/UpdatePokemonValidator'
 
 export default class PokemonController {
+
   public async index() {
     return await Pokemon.query().orderBy('created_at', 'asc')
   }
@@ -43,4 +44,5 @@ export default class PokemonController {
     await pokemon.delete()
     return response.status(204)
   }
+
 }

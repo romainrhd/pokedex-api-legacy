@@ -117,7 +117,7 @@
     "method": "GET",
     "sortNum": 10000,
     "created": "2023-01-30T22:50:58.054Z",
-    "modified": "2023-02-03T16:35:26.391Z",
+    "modified": "2023-02-03T23:38:20.003Z",
     "headers": [
       {
         "name": "Accept",
@@ -127,7 +127,7 @@
     "params": [],
     "auth": {
       "type": "bearer",
-      "bearer": "MQ.QlFTL0twt05qgMaRGUzShx5bvqKbS0vw9yb4NG-qw3C1I5Lgcs7HWojYRjUD"
+      "bearer": "Mg.aRgOw-0iBTOvJIFL8CTl3GDQUnx_s-ZPZlTWtZGQCH_xJVDEkkTDtEUV-D7i"
     },
     "tests": []
   },
@@ -262,6 +262,29 @@
       "type": "json",
       "raw": "{\n  \"email\": \"romain@test.fr\",\n  \"password\": \"pokedex1234\"\n}",
       "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "3d1c8437-578b-403f-a0de-e9d974700c0a",
+    "colId": "d78c52ca-b2a6-4e61-bca3-7a3255491eab",
+    "containerId": "dc71d435-c4aa-41bf-a42e-ea09b3a218e8",
+    "name": "Catched",
+    "url": "http://127.0.0.1:3333/api/appearance/1/catched",
+    "method": "POST",
+    "sortNum": 80000,
+    "created": "2023-02-03T23:19:22.843Z",
+    "modified": "2023-02-03T23:38:57.109Z",
+    "headers": [
+      {
+        "name": "Accept",
+        "value": "application/json"
+      }
+    ],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "MQ.FNb1QyfZuE9lKtEBRAvUMWFbqkL6K34Pt89YM_OReZfd1teeoJZUaZf2TWLq"
     },
     "tests": []
   }

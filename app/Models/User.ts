@@ -38,5 +38,5 @@ export default class User extends BaseModel {
   @manyToMany(() => Appearance, {
     pivotTable: 'pokemon_catched'
   })
-  public appearances: ManyToMany<typeof Appearance>
+  public catched: ManyToMany<typeof Appearance>
 }
