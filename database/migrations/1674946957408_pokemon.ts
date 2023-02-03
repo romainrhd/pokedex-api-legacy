@@ -6,7 +6,7 @@ export default class extends BaseSchema {
   public async up () {
     this.schema.createTable(this.tableName, (table) => {
       table.integer('national_number').unsigned().primary()
-      table.string('name').notNullable()
+      table.string('name').unique().notNullable()
       table
         .integer('evolution_of_national_number')
         .unsigned()
