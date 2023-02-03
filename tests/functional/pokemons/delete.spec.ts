@@ -11,9 +11,23 @@ test.group('Pokemons delete', (group) => {
 
   test('delete one Pokemon', async ({ client }) => {
     const user = await User.findOrFail(1)
+    const response = await client.delete('/api/pokemons/3').guard('api').loginAs(user)
+
+    response.assertStatus(204)
+  })
+
+  test('delete one Pokemon with appearances', async ({ client }) => {
+    const user = await User.findOrFail(1)
     const response = await client.delete('/api/pokemons/1').guard('api').loginAs(user)
 
-    response.assertStatus(200)
+    response.assertStatus(422)
+  })
+
+  test('delete one Pokemon with evolutions', async ({ client }) => {
+    const user = await User.findOrFail(1)
+    const response = await client.delete('/api/pokemons/1').guard('api').loginAs(user)
+
+    response.assertStatus(422)
   })
 
   test('delete one Pokemon that does not exist', async ({ client }) => {

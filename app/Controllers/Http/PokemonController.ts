@@ -23,10 +23,23 @@ export default class PokemonController {
     return await pokemon.merge(payload).save()
   }
 
-  // TODO : Manage the case when the Pokemon has an evolution
-  // TODO : Manage the case when the Pokemon has one or many appearances
   public async destroy({ params, response }: HttpContextContract) {
-    const pokemon = await Pokemon.findOrFail(params.id)
+    const pokemon = await Pokemon
+      .query()
+      .where('nationalNumber', params.id)
+      .preload('appearances')
+      .preload('evolutions')
+      .firstOrFail()
+    if(pokemon.appearances.length > 0){
+      return response.status(422).send({
+        message: "This Pokemon has at least one appearance. Please remove this Pokemon's appearance before deleting it."
+      })
+    }
+    if(pokemon.evolutions.length > 0){
+      return response.status(422).send({
+        message: "This Pokemon has at least one evolution. Please remove this Pokemon's evolution before deleting it."
+      })
+    }
     await pokemon.delete()
     return response.status(204)
   }
