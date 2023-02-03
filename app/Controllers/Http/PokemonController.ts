@@ -23,6 +23,8 @@ export default class PokemonController {
     return await pokemon.merge(payload).save()
   }
 
+  // TODO : Manage the case when the Pokemon has an evolution
+  // TODO : Manage the case when the Pokemon has one or many appearances
   public async destroy({ params, response }: HttpContextContract) {
     const pokemon = await Pokemon.findOrFail(params.id)
     await pokemon.delete()
