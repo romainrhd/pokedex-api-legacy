@@ -19,8 +19,7 @@ jobs:
       - name: Install the dependancies
         run: npm ci
       - name: Configure the api
-        run: cp .env.example .env
-        run: node ace generate:key
+        run: cp .env.example .env && node ace generate:key
       - name: Run test
         run: node ace test
       - name: End message
