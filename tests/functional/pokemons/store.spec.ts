@@ -48,4 +48,18 @@ test.group('Pokemons store', (group) => {
     response.assertStatus(401)
   })
 
+  test('create a Pokemon when user is not an admin', async ({ client }) => {
+    const user = await User.query().where('isAdmin', false).firstOrFail()
+    const response = await client
+      .post('/api/pokemons')
+      .json({
+        nationalNumber: 25,
+        name: 'Pikachu'
+      })
+      .guard('api')
+      .loginAs(user)
+
+    response.assertStatus(403)
+  })
+
 })

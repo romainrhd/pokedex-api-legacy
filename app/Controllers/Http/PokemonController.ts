@@ -9,7 +9,8 @@ export default class PokemonController {
     return await Pokemon.query().orderBy('created_at', 'asc')
   }
 
-  public async store({ request }: HttpContextContract) {
+  public async store({ bouncer, request }: HttpContextContract) {
+    await bouncer.with('PokemonPolicy').authorize('store')
     const payload = await request.validate(CreatePokemonValidator)
     return await Pokemon.create(payload)
   }
@@ -18,13 +19,15 @@ export default class PokemonController {
     return await Pokemon.findOrFail(params.id)
   }
 
-  public async update({ params, request }: HttpContextContract) {
+  public async update({ bouncer, params, request }: HttpContextContract) {
+    await bouncer.with('PokemonPolicy').authorize('update')
     const pokemon = await Pokemon.findOrFail(params.id)
     const payload = await request.validate(UpdatePokemonValidator)
     return await pokemon.merge(payload).save()
   }
 
-  public async destroy({ params, response }: HttpContextContract) {
+  public async destroy({ bouncer, params, response }: HttpContextContract) {
+    await bouncer.with('PokemonPolicy').authorize('destroy')
     const pokemon = await Pokemon
       .query()
       .where('nationalNumber', params.id)

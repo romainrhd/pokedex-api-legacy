@@ -43,4 +43,11 @@ test.group('Pokemons delete', (group) => {
     response.assertStatus(401)
   })
 
+  test('delete one Pokemon when user is not an admin', async ({ client }) => {
+    const user = await User.query().where('isAdmin', false).firstOrFail()
+    const response = await client.delete('/api/pokemons/3').guard('api').loginAs(user)
+
+    response.assertStatus(403)
+  })
+
 })

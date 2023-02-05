@@ -58,4 +58,17 @@ test.group('Pokemons update', (group) => {
     response.assertStatus(401)
   })
 
+  test('update one Pokemon when user is not an admin', async ({ client }) => {
+    const user = await User.query().where('isAdmin', false).firstOrFail()
+    const response = await client
+      .put('/api/pokemons/1')
+      .json({
+        name: 'Bulbi'
+      })
+      .guard('api')
+      .loginAs(user)
+
+    response.assertStatus(403)
+  })
+
 })
