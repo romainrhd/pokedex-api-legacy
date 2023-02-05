@@ -58,4 +58,17 @@ test.group('Appearances update', (group) => {
     response.assertStatus(401)
   })
 
+  test('update one Appearances when user is not an admin', async ({ client }) => {
+    const user = await User.query().where('isAdmin', false).firstOrFail()
+    const response = await client
+      .put('/api/appearances/1')
+      .json({
+        name: 'Bulbizarre classique'
+      })
+      .guard('api')
+      .loginAs(user)
+
+    response.assertStatus(403)
+  })
+
 })

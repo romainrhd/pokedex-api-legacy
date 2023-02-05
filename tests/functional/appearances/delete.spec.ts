@@ -29,4 +29,11 @@ test.group('Appearances delete', (group) => {
     response.assertStatus(401)
   })
 
+  test('delete one Appearance when user is not admin', async ({ client }) => {
+    const user = await User.query().where('isAdmin', false).firstOrFail()
+    const response = await client.delete('/api/appearances/1').guard('api').loginAs(user)
+
+    response.assertStatus(403)
+  })
+
 })

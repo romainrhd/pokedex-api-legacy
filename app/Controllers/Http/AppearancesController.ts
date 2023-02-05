@@ -1,7 +1,6 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Appearance from 'App/Models/Appearance'
 import Pokemon from 'App/Models/Pokemon'
-import User from 'App/Models/User'
 import CreateAppearanceValidator from 'App/Validators/Appearance/CreateAppearanceValidator'
 import UpdateAppearanceValidator from 'App/Validators/Appearance/UpdateAppearanceValidator'
 
@@ -16,7 +15,8 @@ export default class AppearancesController {
     return pokemon.appearances
   }
 
-  public async store({ params, request }: HttpContextContract) {
+  public async store({ bouncer, params, request }: HttpContextContract) {
+    await bouncer.with('AppearancePolicy').authorize('store')
     const pokemon = await Pokemon.findOrFail(params.pokemon_id)
     const payload = await request.validate(CreateAppearanceValidator)
     return await pokemon.related('appearances').create(payload)
@@ -26,13 +26,15 @@ export default class AppearancesController {
     return await Appearance.findOrFail(params.id)
   }
 
-  public async update({ params, request }: HttpContextContract) {
+  public async update({ bouncer, params, request }: HttpContextContract) {
+    await bouncer.with('AppearancePolicy').authorize('update')
     const appearance = await Appearance.findOrFail(params.id)
     const payload = await request.validate(UpdateAppearanceValidator)
     return await appearance.merge(payload).save()
   }
 
-  public async destroy({ params, response }: HttpContextContract) {
+  public async destroy({ bouncer, params, response }: HttpContextContract) {
+    await bouncer.with('AppearancePolicy').authorize('destroy')
     const appearance = await Appearance.findOrFail(params.id)
     await appearance.delete()
     return response.status(204)
