@@ -7,9 +7,18 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
+      - name: Install MariaDB
+        uses: getong/mariadb-action@v1.1
+        with:
+          host port: 3307
+          mysql database: 'pokedex_db'
+          mysql user: 'pokedex_u'
+          mysql password: 'P0k3d3x'
       - name: Checkout
         uses: actions/checkout@v3
       - name: Install the dependancies
         run: npm ci
+      - name: Run test
+        run: npm ace test
       - name: End message
         run: echo 'All done!'
