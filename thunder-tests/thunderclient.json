@@ -226,7 +226,7 @@
     "method": "POST",
     "sortNum": 60000,
     "created": "2023-02-01T23:02:06.371Z",
-    "modified": "2023-02-01T23:04:44.283Z",
+    "modified": "2023-02-05T16:16:00.364Z",
     "headers": [
       {
         "name": "Accept",
@@ -236,7 +236,7 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"email\": \"romain@test.fr\",\n  \"lastName\": \"RICHARD\",\n  \"firstName\": \"Romain\",\n  \"password\": \"pokedex1234\",\n  \"passwordConfirmation\": \"pokedex1234\"\n}",
+      "raw": "{\n  \"email\": \"romain@test.fr\",\n  \"lastName\": \"RICHARD\",\n  \"firstName\": \"Romain\",\n  \"password\": \"pokedex1234\",\n  \"passwordConfirmation\": \"pokedex1234\",\n  \"isAdmin\": true\n}",
       "form": []
     },
     "tests": []

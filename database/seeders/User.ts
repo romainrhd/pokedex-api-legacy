@@ -10,6 +10,7 @@ export default class extends BaseSeeder {
       lastName: "Doe",
       email: "john.doe@test.fr",
       password: "secret",
+      isAdmin: true
     })
   }
 }
