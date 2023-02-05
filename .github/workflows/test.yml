@@ -19,6 +19,6 @@ jobs:
       - name: Install the dependancies
         run: npm ci
       - name: Run test
-        run: node ace test
+        run: node ace generate:key && node ace test
       - name: End message
         run: echo 'All done!'
