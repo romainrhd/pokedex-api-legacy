@@ -10,10 +10,10 @@ jobs:
       - name: Install MariaDB
         uses: getong/mariadb-action@v1.1
         with:
-          host port: 3307
-          mysql database: 'pokedex_db'
-          mysql user: 'pokedex_u'
-          mysql password: 'P0k3d3x'
+          host port: ${{ secrets.MYSQL_PORT }}
+          mysql database: ${{ secrets.MYSQL_DB_NAME }}
+          mysql user: ${{ secrets.MYSQL_USER }}
+          mysql password: ${{ secrets.MYSQL_PASSWORD }}
       - name: Checkout
         uses: actions/checkout@v3
       - name: Install the dependancies
