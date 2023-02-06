@@ -28,6 +28,7 @@ jobs:
           echo "MYSQL_USER=${{ secrets.MYSQL_USER }}" >> .env
           echo "MYSQL_PASSWORD=${{ secrets.MYSQL_PASSWORD }}" >> .env
           echo "MYSQL_DB_NAME=${{ secrets.MYSQL_DB_NAME }}" >> .env
+          cat .env
       - name: Run test
         run: node ace test
       - name: End message
