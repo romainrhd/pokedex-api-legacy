@@ -207,11 +207,11 @@
     "colId": "d78c52ca-b2a6-4e61-bca3-7a3255491eab",
     "containerId": "dc71d435-c4aa-41bf-a42e-ea09b3a218e8",
     "name": "Delete",
-    "url": "http://localhost:3333/api/appearances/3",
+    "url": "http://localhost:3333/api/appearances/1",
     "method": "DELETE",
     "sortNum": 50000,
     "created": "2023-01-30T22:50:58.059Z",
-    "modified": "2023-02-01T23:01:39.574Z",
+    "modified": "2023-02-08T15:08:23.183Z",
     "headers": [
       {
         "name": "Accept",
@@ -219,6 +219,10 @@
       }
     ],
     "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "MQ.8XOhGw7e1hWcsmd30psBdxO8GBtNuyZWKIBNYVewph_mw5hO4IpQDRl6GtQx"
+    },
     "tests": []
   },
   {

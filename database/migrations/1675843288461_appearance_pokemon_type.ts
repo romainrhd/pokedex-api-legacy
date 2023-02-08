@@ -5,8 +5,8 @@ export default class extends BaseSchema {
 
   public async up () {
     this.schema.createTable(this.tableName, (table) => {
-      table.integer('appearance_id').unsigned().references('appearances.id')
-      table.integer('pokemon_type_id').unsigned().references('pokemon_types.id')
+      table.integer('appearance_id').unsigned().references('appearances.id').onDelete('CASCADE')
+      table.integer('pokemon_type_id').unsigned().references('pokemon_types.id').onDelete('CASCADE')
       table.primary(['appearance_id', 'pokemon_type_id'])
       table.timestamp('created_at', { useTz: true })
       table.timestamp('updated_at', { useTz: true })
