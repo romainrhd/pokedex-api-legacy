@@ -2,6 +2,7 @@ import { DateTime } from 'luxon'
 import { BaseModel, column, BelongsTo, belongsTo, manyToMany, ManyToMany } from '@ioc:Adonis/Lucid/Orm'
 import Pokemon from 'App/Models/Pokemon'
 import User from 'App/Models/User'
+import PokemonType from './PokemonType'
 
 export default class Appearance extends BaseModel {
   @column({ isPrimary: true })
@@ -38,4 +39,7 @@ export default class Appearance extends BaseModel {
     pivotTable: 'pokemon_catched'
   })
   public users: ManyToMany<typeof User>
+
+  @manyToMany(() => PokemonType)
+  public pokemonTypes: ManyToMany<typeof PokemonType>
 }

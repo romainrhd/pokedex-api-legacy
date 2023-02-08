@@ -1,5 +1,6 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, column, manyToMany, ManyToMany } from '@ioc:Adonis/Lucid/Orm'
+import Appearance from './Appearance'
 
 export default class PokemonType extends BaseModel {
   @column({ isPrimary: true })
@@ -16,4 +17,7 @@ export default class PokemonType extends BaseModel {
 
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   public updatedAt: DateTime
+
+  @manyToMany(() => Appearance)
+  public appearances: ManyToMany<typeof Appearance>
 }
