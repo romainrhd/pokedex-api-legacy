@@ -22,7 +22,6 @@ export default class AppearancesController {
     const appearance = await pokemon.related('appearances').create(payload)
     await appearance.related('pokemonTypes').attach(payload.pokemonTypes)
     await appearance.load('pokemonTypes')
-    
     return appearance
   }
 
@@ -34,7 +33,12 @@ export default class AppearancesController {
     await bouncer.with('AppearancePolicy').authorize('update')
     const appearance = await Appearance.findOrFail(params.id)
     const payload = await request.validate(UpdateAppearanceValidator)
-    return await appearance.merge(payload).save()
+    await appearance.merge(payload).save()
+    if(payload.pokemonTypes) {
+      await appearance.related('pokemonTypes').sync(payload.pokemonTypes)
+    }
+    await appearance.load('pokemonTypes')
+    return appearance
   }
 
   public async destroy({ bouncer, params, response }: HttpContextContract) {

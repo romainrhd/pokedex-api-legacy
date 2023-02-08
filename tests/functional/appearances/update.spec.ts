@@ -9,12 +9,13 @@ test.group('Appearances update', (group) => {
     return () => Database.rollbackGlobalTransaction()
   })
 
-  test('update one Appearances', async ({ client }) => {
+  test('update one Appearance', async ({ client }) => {
     const user = await User.findOrFail(1)
     const response = await client
       .put('/api/appearances/1')
       .json({
-        name: 'Bulbizarre classique'
+        name: 'Bulbizarre classique',
+        pokemonTypes: [11, 12]
       })
       .guard('api')
       .loginAs(user)
@@ -22,7 +23,7 @@ test.group('Appearances update', (group) => {
     response.assertStatus(200)
   })
 
-  test('update one Appearances that does not exist', async ({ client }) => {
+  test('update one Appearance that does not exist', async ({ client }) => {
     const user = await User.findOrFail(1)
     const response = await client
       .put('/api/appearances/3')
@@ -35,7 +36,7 @@ test.group('Appearances update', (group) => {
     response.assertStatus(404)
   })
 
-  test('update one Appearances for one Pokemon that does not exist', async ({ client }) => {
+  test('update one Appearance for one Pokemon that does not exist', async ({ client }) => {
     const user = await User.findOrFail(1)
     const response = await client
       .put('/api/appearances/1')
@@ -48,7 +49,7 @@ test.group('Appearances update', (group) => {
     response.assertStatus(422)
   })
 
-  test('update one Appearances when user is guest', async ({ client }) => {
+  test('update one Appearance when user is guest', async ({ client }) => {
     const response = await client
       .put('/api/appearances/1')
       .json({
@@ -58,7 +59,7 @@ test.group('Appearances update', (group) => {
     response.assertStatus(401)
   })
 
-  test('update one Appearances when user is not an admin', async ({ client }) => {
+  test('update one Appearance when user is not an admin', async ({ client }) => {
     const user = await User.query().where('isAdmin', false).firstOrFail()
     const response = await client
       .put('/api/appearances/1')

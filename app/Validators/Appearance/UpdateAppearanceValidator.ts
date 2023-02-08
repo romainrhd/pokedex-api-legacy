@@ -14,6 +14,12 @@ export default class UpdateAppearanceValidator {
     pokemonNationalNumber: schema.number.optional([
       rules.exists({ table: 'pokemon', column: 'national_number' })
     ]),
+    pokemonTypes: schema.array.optional([
+      rules.minLength(1),
+      rules.maxLength(2)
+    ]).members(schema.number([
+      rules.exists({ table: 'pokemon_types', column: 'id' })
+    ]))
   })
 
   public messages: CustomMessages = {}

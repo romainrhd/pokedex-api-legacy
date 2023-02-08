@@ -16,17 +16,13 @@ export default class CreateAppearanceValidator {
     isShiny: schema.boolean([
       rules.required()
     ]),
-    pokemonTypes: schema
-      .array([
-        rules.required(),
-        rules.minLength(1),
-        rules.maxLength(2)
-      ])
-      .members(
-        schema.number([
-          rules.exists({ table: 'pokemon_types', column: 'id' })
-        ])
-      )
+    pokemonTypes: schema.array([
+      rules.required(),
+      rules.minLength(1),
+      rules.maxLength(2)
+    ]).members(schema.number([
+      rules.exists({ table: 'pokemon_types', column: 'id' })
+    ]))
   })
 
   public messages: CustomMessages = {}
