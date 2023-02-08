@@ -1,6 +1,7 @@
 import BaseSeeder from '@ioc:Adonis/Lucid/Seeder'
 import Appearance from 'App/Models/Appearance';
 import Pokemon from 'App/Models/Pokemon'
+import PokemonType from 'App/Models/PokemonType';
 import { pokemons } from '../data/pokemons'
 
 export default class extends BaseSeeder {
@@ -16,13 +17,20 @@ export default class extends BaseSeeder {
 
       if(pokemon.appearances.length > 0) {
         for(const appearance of pokemon.appearances) {
-          await Appearance.create({
+          const newAppearance = await Appearance.create({
             name: appearance.name,
             picture: appearance.picture,
             isDefault: appearance.isDefault,
             isShiny: appearance.isShiny,
             pokemonNationalNumber: pokemon.nationalNumber
           })
+
+          if(appearance.types.length > 1) {
+            for(const type of appearance.types) {
+              const pokemonType = await PokemonType.findByOrFail('name', type)
+              newAppearance.related('pokemonTypes').attach([pokemonType.id])
+            }
+          }
         }
       }
 

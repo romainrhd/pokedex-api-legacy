@@ -8,26 +8,28 @@ export const pokemons = [
                 "name": null,
                 "picture": "https://www.pokepedia.fr/images/3/34/Sprite_001_HOME.png",
                 "isDefault": true,
-                "isShiny": false
+                "isShiny": false,
+                "types": ['Plante', 'Poison']
             },
             {
                 "name": null,
                 "picture": "https://www.pokepedia.fr/images/b/bf/Sprite_001_chromatique_HOME.png",
                 "isDefault": false,
-                "isShiny": true
+                "isShiny": true,
+                "types": ['Plante', 'Poison']
             }
-        ]
+        ],
     },
     {
         "nationalNumber": 2,
         "name": "Herbizarre",
         "evolutionOfNationalNumber": 1,
-        "appearances": []
+        "appearances": [],
     },
     {
         "nationalNumber": 3,
         "name": "Florizarre",
         "evolutionOfNationalNumber": 2,
-        "appearances": []
+        "appearances": [],
     }
 ]
