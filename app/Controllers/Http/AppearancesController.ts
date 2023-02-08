@@ -42,9 +42,9 @@ export default class AppearancesController {
 
   public async catched({ params, auth }: HttpContextContract) {
     const appearance = await Appearance.findOrFail(params.id)
-    await appearance.related('users').attach([auth.user.id])
-    await auth.user.load('catched')
-    return auth.user.catched
+    await appearance.related('users').attach([auth.user!.id])
+    await auth.user!.load('catched')
+    return auth.user!.catched
   }
 
 }
