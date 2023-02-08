@@ -36,6 +36,9 @@ const databaseConfig: DatabaseConfig = {
       },
       healthCheck: false,
       debug: false,
+      seeders: {
+        paths: ['./database/seeders/MainSeeder']
+      }
     },
     testing: {
       client: 'mysql2',
@@ -51,6 +54,9 @@ const databaseConfig: DatabaseConfig = {
       },
       healthCheck: false,
       debug: false,
+      seeders: {
+        paths: ['./database/seeders/MainSeeder']
+      }
     },
   }
 }
