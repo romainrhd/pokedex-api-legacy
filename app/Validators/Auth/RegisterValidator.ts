@@ -26,6 +26,7 @@ export default class RegisterValidator {
       rules.required(),
       rules.confirmed('passwordConfirmation')
     ]),
+    // TODO remove this for more security
     isAdmin: schema.boolean([
       rules.required()
     ])
