@@ -38,7 +38,7 @@ test.group('Pokemons delete', (group) => {
   })
 
   test('delete one Pokemon when user is guest', async ({ client }) => {
-    const response = await client.delete('/api/pokemons/1')
+    const response = await client.delete('/api/pokemons/3')
 
     response.assertStatus(401)
   })
