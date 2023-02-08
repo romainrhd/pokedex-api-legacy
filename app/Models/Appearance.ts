@@ -36,10 +36,13 @@ export default class Appearance extends BaseModel {
   public evolutionOf: BelongsTo<typeof Pokemon>
 
   @manyToMany(() => User, {
-    pivotTable: 'pokemon_catched'
+    pivotTable: 'pokemon_catched',
+    pivotTimestamps: true
   })
   public users: ManyToMany<typeof User>
 
-  @manyToMany(() => PokemonType)
+  @manyToMany(() => PokemonType, {
+    pivotTimestamps: true
+  })
   public pokemonTypes: ManyToMany<typeof PokemonType>
 }

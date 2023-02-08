@@ -18,6 +18,8 @@ export default class PokemonType extends BaseModel {
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   public updatedAt: DateTime
 
-  @manyToMany(() => Appearance)
+  @manyToMany(() => Appearance, {
+    pivotTimestamps: true
+  })
   public appearances: ManyToMany<typeof Appearance>
 }
