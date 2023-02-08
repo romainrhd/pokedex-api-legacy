@@ -19,7 +19,11 @@ export default class AppearancesController {
     await bouncer.with('AppearancePolicy').authorize('store')
     const pokemon = await Pokemon.findOrFail(params.pokemon_id)
     const payload = await request.validate(CreateAppearanceValidator)
-    return await pokemon.related('appearances').create(payload)
+    const appearance = await pokemon.related('appearances').create(payload)
+    await appearance.related('pokemonTypes').attach(payload.pokemonTypes)
+    await appearance.load('pokemonTypes')
+    
+    return appearance
   }
 
   public async show({ params }: HttpContextContract) {

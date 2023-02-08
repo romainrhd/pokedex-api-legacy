@@ -16,12 +16,45 @@ test.group('Appearances store', (group) => {
       .json({
         picture: "https://www.pokepedia.fr/images/3/3b/Sprite_002_HOME.png",
         isDefault: true,
-        isShiny: false
+        isShiny: false,
+        pokemonTypes: [11, 12]
       })
       .guard('api')
       .loginAs(user)
 
     response.assertStatus(200)
+  })
+
+  test('create an Appearance with no PokemonType', async ({ client }) => {
+    const user = await User.findOrFail(1)
+    const response = await client
+      .post('/api/pokemon/1/appearances')
+      .json({
+        picture: "https://www.pokepedia.fr/images/3/3b/Sprite_002_HOME.png",
+        isDefault: true,
+        isShiny: false,
+        pokemonTypes: []
+      })
+      .guard('api')
+      .loginAs(user)
+
+    response.assertStatus(422)
+  })
+
+  test('create an Appearance with more than two PokemonType', async ({ client }) => {
+    const user = await User.findOrFail(1)
+    const response = await client
+      .post('/api/pokemon/1/appearances')
+      .json({
+        picture: "https://www.pokepedia.fr/images/3/3b/Sprite_002_HOME.png",
+        isDefault: true,
+        isShiny: false,
+        pokemonTypes: [11, 12, 13]
+      })
+      .guard('api')
+      .loginAs(user)
+
+    response.assertStatus(422)
   })
 
   test('create an Appearance for one Pokemon that does not exist', async ({ client }) => {
@@ -31,7 +64,8 @@ test.group('Appearances store', (group) => {
       .json({
         picture: "https://www.pokepedia.fr/images/3/3b/Sprite_002_HOME.png",
         isDefault: true,
-        isShiny: false
+        isShiny: false,
+        pokemonTypes: [11, 12]
       })
       .guard('api')
       .loginAs(user)
@@ -45,7 +79,8 @@ test.group('Appearances store', (group) => {
       .json({
         picture: "https://www.pokepedia.fr/images/3/3b/Sprite_002_HOME.png",
         isDefault: true,
-        isShiny: false
+        isShiny: false,
+        pokemonTypes: [11, 12]
       })
 
     response.assertStatus(401)
@@ -58,7 +93,8 @@ test.group('Appearances store', (group) => {
       .json({
         picture: "https://www.pokepedia.fr/images/3/3b/Sprite_002_HOME.png",
         isDefault: true,
-        isShiny: false
+        isShiny: false,
+        pokemonTypes: [11, 12]
       })
       .guard('api')
       .loginAs(user)

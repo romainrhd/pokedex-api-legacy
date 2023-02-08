@@ -163,7 +163,7 @@
     "method": "POST",
     "sortNum": 30000,
     "created": "2023-01-30T22:50:58.057Z",
-    "modified": "2023-02-01T23:01:32.546Z",
+    "modified": "2023-02-08T22:36:23.915Z",
     "headers": [
       {
         "name": "Accept",
@@ -173,8 +173,12 @@
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"picture\": \"https://www.pokepedia.fr/images/3/3b/Sprite_002_HOME.png\",\n  \"isDefault\": true,\n  \"isShiny\": false\n}",
+      "raw": "{\n  \"picture\": \"https://www.pokepedia.fr/images/3/3b/Sprite_002_HOME.png\",\n  \"isDefault\": true,\n  \"isShiny\": false,\n  \"pokemonTypes\": []\n}",
       "form": []
+    },
+    "auth": {
+      "type": "bearer",
+      "bearer": "MQ.b_KMu8dBcNcVTrcfOlMMo49t8MRBeeSAymNNxoqdkWOpgT5q3ikz77j-Lwzy"
     },
     "tests": []
   },
