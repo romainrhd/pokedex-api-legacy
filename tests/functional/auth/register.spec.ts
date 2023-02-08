@@ -17,7 +17,6 @@ test.group('Auth register', (group) => {
         email: "test@test.fr",
         password: "secret",
         passwordConfirmation: "secret",
-        isAdmin: true
       })
 
     response.assertStatus(200)
@@ -32,7 +31,6 @@ test.group('Auth register', (group) => {
         email: "john.doe@test.fr",
         password: "secret",
         passwordConfirmation: "secret",
-        isAdmin: true
       })
 
     response.assertStatus(422)
