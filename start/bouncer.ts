@@ -6,6 +6,7 @@
  */
 
 import Bouncer from '@ioc:Adonis/Addons/Bouncer'
+import PokemonTypePolicy from 'App/Policies/PokemonTypePolicy'
 
 /*
 |--------------------------------------------------------------------------
@@ -56,5 +57,6 @@ export const { actions } = Bouncer
 */
 export const { policies } = Bouncer.registerPolicies({
     PokemonPolicy: () => import('App/Policies/PokemonPolicy'),
-    AppearancePolicy: () => import('App/Policies/AppearancePolicy')
+    AppearancePolicy: () => import('App/Policies/AppearancePolicy'),
+    PokemonTypePolicy: () => import('App/Policies/PokemonTypePolicy')
 })
