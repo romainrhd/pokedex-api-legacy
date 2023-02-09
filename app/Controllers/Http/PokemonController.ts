@@ -35,12 +35,12 @@ export default class PokemonController {
       .preload('evolutions')
       .firstOrFail()
     if(pokemon.appearances.length > 0){
-      return response.status(422).send({
+      return response.status(409).send({
         message: "This Pokemon has at least one appearance. Please remove this Pokemon's appearance before deleting it."
       })
     }
     if(pokemon.evolutions.length > 0){
-      return response.status(422).send({
+      return response.status(409).send({
         message: "This Pokemon has at least one evolution. Please remove this Pokemon's evolution before deleting it."
       })
     }

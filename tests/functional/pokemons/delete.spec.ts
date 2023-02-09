@@ -20,14 +20,14 @@ test.group('Pokemons delete', (group) => {
     const user = await User.findOrFail(1)
     const response = await client.delete('/api/pokemons/1').guard('api').loginAs(user)
 
-    response.assertStatus(422)
+    response.assertStatus(409)
   })
 
   test('delete one Pokemon with evolutions', async ({ client }) => {
     const user = await User.findOrFail(1)
     const response = await client.delete('/api/pokemons/1').guard('api').loginAs(user)
 
-    response.assertStatus(422)
+    response.assertStatus(409)
   })
 
   test('delete one Pokemon that does not exist', async ({ client }) => {
