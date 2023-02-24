@@ -10,7 +10,9 @@ export default class UpdateAppearanceValidator {
       rules.url()
     ]),
     isDefault: schema.boolean.optional(),
-    isShiny: schema.boolean.optional(),
+    shinyId: schema.number.optional([
+      rules.exists({ table: 'appearance', column: 'id' })
+    ]),
     pokemonNationalNumber: schema.number.optional([
       rules.exists({ table: 'pokemon', column: 'national_number' })
     ]),

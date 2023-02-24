@@ -6,7 +6,7 @@ import { pokemons } from '../data/pokemons'
 
 export default class extends BaseSeeder {
   public static environment = ['development', 'test']
-  
+
   public async run () {
     for(const pokemon of pokemons) {
       await Pokemon.create({
@@ -21,14 +21,23 @@ export default class extends BaseSeeder {
             name: appearance.name,
             picture: appearance.picture,
             isDefault: appearance.isDefault,
-            isShiny: appearance.isShiny,
             pokemonNationalNumber: pokemon.nationalNumber
           })
+
+          if(appearance.shiny) {
+            const shiny = await Appearance.create({
+              name: appearance.shiny.name,
+              picture: appearance.shiny.picture,
+              isDefault: appearance.shiny.isDefault,
+              pokemonNationalNumber: pokemon.nationalNumber
+            })
+            await newAppearance.related('shiny').associate(shiny)
+          }
 
           if(appearance.types.length > 1) {
             for(const type of appearance.types) {
               const pokemonType = await PokemonType.findByOrFail('name', type)
-              newAppearance.related('pokemonTypes').attach([pokemonType.id])
+              await newAppearance.related('pokemonTypes').attach([pokemonType.id])
             }
           }
         }

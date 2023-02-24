@@ -16,8 +16,8 @@ test.group('Appearances store', (group) => {
       .json({
         picture: "https://www.pokepedia.fr/images/3/3b/Sprite_002_HOME.png",
         isDefault: true,
-        isShiny: false,
-        pokemonTypes: [11, 12]
+        pokemonTypes: [11, 12],
+        pokemonNationalNumber: 1
       })
       .guard('api')
       .loginAs(user)

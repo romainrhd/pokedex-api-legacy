@@ -13,8 +13,11 @@ export default class CreateAppearanceValidator {
     isDefault: schema.boolean([
       rules.required()
     ]),
-    isShiny: schema.boolean([
-      rules.required()
+    shinyId: schema.number.optional([
+      rules.exists({ table: 'appearance', column: 'id' })
+    ]),
+    pokemonNationalNumber: schema.number([
+      rules.exists({ table: 'pokemon', column: 'national_number' })
     ]),
     pokemonTypes: schema.array([
       rules.required(),

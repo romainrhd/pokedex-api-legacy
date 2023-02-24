@@ -18,7 +18,7 @@ export default class Appearance extends BaseModel {
   public isDefault: boolean
 
   @column()
-  public isShiny: boolean
+  public shinyId: number
 
   @column()
   public pokemonNationalNumber: number
@@ -29,11 +29,15 @@ export default class Appearance extends BaseModel {
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   public updatedAt: DateTime
 
-  @belongsTo(() => Pokemon, {
-    foreignKey: 'evolutionOfNationalNumber',
-    localKey: 'nationalNumber'
+  @belongsTo(() => Appearance, {
+    foreignKey: 'shinyId',
   })
-  public evolutionOf: BelongsTo<typeof Pokemon>
+  public shiny: BelongsTo<typeof Appearance>
+
+  @belongsTo(() => Pokemon, {
+    foreignKey: 'pokemonNationalNumber'
+  })
+  public pokemon: BelongsTo<typeof Pokemon>
 
   @manyToMany(() => User, {
     pivotTable: 'pokemon_catched',

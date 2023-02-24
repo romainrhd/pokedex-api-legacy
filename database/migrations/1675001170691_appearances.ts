@@ -9,7 +9,11 @@ export default class extends BaseSchema {
       table.string('name').nullable()
       table.string('picture').notNullable()
       table.boolean('is_default').notNullable()
-      table.boolean('is_shiny').notNullable()
+      table
+        .integer('shiny_id')
+        .unsigned()
+        .references('appearances.id')
+        .nullable()
       table
         .integer('pokemon_national_number')
         .unsigned()
