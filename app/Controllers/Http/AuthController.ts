@@ -13,10 +13,14 @@ export default class AuthController {
       const password = request.input('password')
 
       try {
-          const token = await auth.use('api').attempt(email, password)
-          return token
+          return await auth.use('api').attempt(email, password)
       } catch {
           return response.unauthorized('Invalid credentials')
       }
+    }
+
+    public async logout({ auth, response }: HttpContextContract) {
+      await auth.use('api').revoke()
+      return response.status(204)
     }
 }
