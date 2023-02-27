@@ -1,9 +1,10 @@
 import { test } from '@japa/runner'
+import { ApiResponse } from '@japa/api-client'
 
 test.group('Auth login', () => {
 
   test('login user', async ({ client }) => {
-    const response = await client
+    const response: ApiResponse = await client
       .post('/api/login')
       .json({
         email: "john.doe@test.fr",
@@ -14,7 +15,7 @@ test.group('Auth login', () => {
   })
 
   test('login user with wrong email', async ({ client }) => {
-    const response = await client
+    const response: ApiResponse = await client
       .post('/api/login')
       .json({
         email: "wrong.password@test.com",
@@ -25,7 +26,7 @@ test.group('Auth login', () => {
   })
 
   test('login user with wrong password', async ({ client }) => {
-    const response = await client
+    const response: ApiResponse = await client
       .post('/api/login')
       .json({
         email: "john.doe@test.fr",

@@ -1,5 +1,6 @@
 import Database from '@ioc:Adonis/Lucid/Database'
 import { test } from '@japa/runner'
+import { ApiResponse } from '@japa/api-client'
 
 test.group('Auth register', (group) => {
 
@@ -9,7 +10,7 @@ test.group('Auth register', (group) => {
   })
 
   test('register user', async ({ client }) => {
-    const response = await client
+    const response: ApiResponse = await client
       .post('/api/register')
       .json({
         lastName: "Test",
@@ -23,7 +24,7 @@ test.group('Auth register', (group) => {
   })
 
   test('register user with email already used', async ({ client }) => {
-    const response = await client
+    const response: ApiResponse = await client
       .post('/api/register')
       .json({
         firstName: "John",
